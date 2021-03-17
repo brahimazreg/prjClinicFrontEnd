@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Update Patient</h3>
+  <form           (ngSubmit)="onSave()"  >
+    <div class="form-group">
+      <label> First Name</label>
+      <input type="text" name="firstName" id="firstName" class="form-control"  [(ngModel)]="currentPatient.firstName">
+
+    </div>
+    <div class="form-group">
+      <label> Last Name</label>
+      <input type="text" name="lastName" id="lastName" class="form-control" [(ngModel)]="currentPatient.lastName">
+
+    </div>
+    <!-- <div class="form-group">
+      <label> Date of Birth</label>
+      <input type="text" name="dob" id="dob" class="form-control" [(ngModel)]="currentPatient.dob">
+
+    </div> -->
+    <div class="form-group">
+      <label> Phone</label>
+      <input type="text" name="phone" id="phone" class="form-control" [(ngModel)]="currentPatient.phone">
+
+    </div>
+    <div class="form-group" >
+      <label> Select Doctor </label>
+      <select  name="doctor" id="doctor" class="form-control" [(ngModel)]="doctorId" >
+        <option *ngFor="let doc of doctors" [value] ="doc.id">
+          {{doc.fname}}
+
+        </option>
+   </select>
+    </div>
+
+
+    <div>
+      <button type="submit" class="btn btn-success">Save </button>
+    </div>
+  </form>
+
+
+</div>

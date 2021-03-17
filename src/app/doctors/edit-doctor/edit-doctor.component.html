@@ -1,0 +1,20 @@
+<div class="container" *ngIf="doctor">
+  <h3>Doctor's Details</h3>
+  <div>
+    <label><b>First Name :</b></label>
+    {{doctor.fname}}
+  </div>
+  <div>
+    <label><b>Last Name :</b></label>
+    {{doctor.lname}}
+  </div>
+  <div>
+    <label><b>Phone  :</b></label>
+    {{doctor.phone}}
+  </div>
+  <div>
+    <label><b>Speciality  :</b></label>
+    {{doctor.speciality}}
+  </div>
+  <button type="submit" class="btn btn-success" (click)="backToList()">Back</button>
+</div>

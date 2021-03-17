@@ -1,0 +1,16 @@
+<h3>Patient details </h3>
+<div class="container" *ngIf="patient">
+     <div>
+       <label><b>First Name :</b></label>{{patient.firstName}}
+     </div>
+     <div>
+      <label><b>Last Name :</b></label>{{patient.lastName}}
+    </div>
+
+    <div>
+      <label><b>Phone :</b></label>{{patient.phone}}
+    </div>
+    <div>
+     <button class="btn btn-success"  (click)="onBack()">Back</button>
+    </div>
+</div>

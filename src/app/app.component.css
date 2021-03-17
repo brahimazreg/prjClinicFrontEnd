@@ -1,0 +1,25 @@
+
+img{
+  height: 80px;
+  width: 150px;
+  border-radius: 10px;
+}
+.divimg{
+  margin-right: 100px;
+}
+
+.link{
+  color: white;
+}
+li{
+  padding-left: 20px;
+}
+.header{
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  background-color: green;
+  color: white;
+
+}
+

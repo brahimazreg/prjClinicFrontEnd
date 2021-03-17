@@ -1,0 +1,28 @@
+<header class="navbar navbar-expand-sm header ">
+  <nav class="navbar navbar-default " >
+    <div class="container-fluid">
+      <div class="navbar-header divimg">
+        <img src="../assets/images/clinic.png">
+        <!-- <a class="navbar-brand link" href="#">WebSiteName</a> -->
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active "><a routerLink="/home" routerLinkActive="active"  class="link">Home</a></li>
+        <li class="active "><a routerLink="/patientList" routerLinkActive="active"  class="link">Patients</a></li>
+        <li class="active "><a routerLink="/doctorsList" routerLinkActive="active"  class="link">Doctors</a></li>
+        <li class="active "><a routerLink="/specialityList" routerLinkActive="active"  class="link">Speciality</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+<div class="container">
+  <h3 class="text-center">Welcome to the Online Clinic</h3>
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+   <div>
+     <span>@Brahim Azreg</span>
+   </div>
+</footer>
+

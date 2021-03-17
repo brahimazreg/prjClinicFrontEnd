@@ -1,0 +1,17 @@
+<div class="container" *ngIf="speciality">
+  <h3>Add Speciality</h3>
+  <form (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label>Speciality</label>
+      <input type="text" name="speciality" id="speciality" class="form-control" [(ngModel)]="speciality.speciality">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" name="description" id="description" class="form-control" [(ngModel)]="speciality.description">
+    </div>
+     <div class="form-group">
+      <button type="submit" class="btn btn-success" >Save</button>
+      </div>
+  </form>
+
+</div>
