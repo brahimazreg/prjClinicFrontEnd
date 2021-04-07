@@ -1,16 +1,34 @@
-<div class="container" *ngIf="speciality">
-  <h3>Add Speciality</h3>
-  <form (ngSubmit)="onSave()">
+<div class="container" *ngIf="myspeciality">
+  <h3>Update Speciality</h3>
+  <form #updateSpeciality="ngForm" (ngSubmit)="onSave(updateSpeciality)">
     <div class="form-group">
       <label>Speciality</label>
-      <input type="text" name="speciality" id="speciality" class="form-control" [(ngModel)]="speciality.speciality">
+      <input type="text" #speciality="ngModel" required minlength="3" name="speciality" id="speciality" class="form-control" [(ngModel)]="myspeciality.speciality">
+      <small [style.color]="'blue'"  *ngIf="speciality.touched && !speciality.valid">
+        <div *ngIf="speciality?.errors?.required">
+          The speciality is required.
+        </div>
+        <div *ngIf="speciality?.errors?.minlength">
+         The speciality must be at least 3 characters.
+        </div>
+
+      </small>
     </div>
     <div class="form-group">
       <label>Description</label>
-      <input type="text" name="description" id="description" class="form-control" [(ngModel)]="speciality.description">
+      <input type="text" #description="ngModel" required minlength="3" name="description" id="description" class="form-control" [(ngModel)]="myspeciality.description">
+      <small [style.color]="'blue'"  *ngIf="description.touched && !description.valid">
+        <div *ngIf="description?.errors?.required">
+          The description  is required.
+        </div>
+        <div *ngIf="description?.errors?.minlength">
+         The description must be at least 3 characters.
+        </div>
+
+      </small>
     </div>
      <div class="form-group">
-      <button type="submit" class="btn btn-success" >Save</button>
+      <button type="submit" class="btn btn-success" [disabled]="!updateSpeciality.valid" >Save</button>
       </div>
   </form>
 

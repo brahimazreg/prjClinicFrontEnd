@@ -29,8 +29,8 @@ export class UpdateDoctorComponent implements OnInit {
     });
   }
 
-  onSave(){
-     this.patientService.updateDoctor(this.currentDoctorId,this.currentSpecialityId,this.doctor).subscribe(data =>{
+  onSave(updateDoctor:any){
+     this.patientService.updateDoctor(this.currentDoctorId,this.currentSpecialityId,updateDoctor.value).subscribe(data =>{
        console.log("A doctor has been updated");
        this.router.navigate(['doctorsList']);
      });

@@ -28,10 +28,11 @@ export class CreatePatientComponent implements OnInit {
    );
   }
 
-  onAdd(){
+  onAdd(patientForm: any){
 
    console.log(this.currentDoctorId)
-   this.patientService.createPatient(this.patient,this.currentDoctorId).subscribe(
+  //  this.patientService.createPatient(this.patient,this.currentDoctorId).subscribe(
+   this.patientService.createPatient(patientForm.value,this.currentDoctorId).subscribe(
      data => {
          console.log("a patient has been adde");
          this.router.navigate(['patientList']);

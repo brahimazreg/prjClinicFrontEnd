@@ -1,33 +1,48 @@
 
 <div class="col-md-6 offset-md-3" >
   <h3>Update Doctor</h3>
-  <form (ngSubmit)="onSave()" *ngIf="doctor">
+  <form #updateDoctor="ngForm" (ngSubmit)="onSave(updateDoctor)" *ngIf="doctor">
     <div class="form-group">
       <label>First Name</label>
-      <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="doctor.fname">
-
+      <input type="text" #fname="ngModel" minlength="3" class="form-control" name="fname" id="firstName" [(ngModel)]="doctor.fname" required>
+      <small [style.color]="'blue'" *ngIf="fname.touched && !fname.valid">
+         <div *ngIf="fname?.errors?.required">
+           First Name is required.
+         </div>
+         <div *ngIf="fname?.errors?.minlength">
+           First Name must be at least 3 characters long.
+         </div>
+      </small>
     </div>
     <div class="form-group">
       <label>Last Name</label>
-      <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="doctor.lname">
-
+      <input type="text" #lname="ngModel" minlength="3"   class="form-control" name="lname" id="lastName" [(ngModel)]="doctor.lname" required>
+      <small [style.color]="'blue'" *ngIf="lname.touched && !lname.valid">
+        <div *ngIf="lname?.errors?.required">
+          Last Name is required.
+        </div>
+        <div *ngIf="lname?.errors?.minlength">
+          Last Name must be at least 3 characters long.
+        </div>
+     </small>
     </div>
     <div class="form-group">
       <label>Phone </label>
-      <input type="text" class="form-control" name="phone" id="phone" [(ngModel)]="doctor.phone">
-
+      <input type="text" #phone="ngModel" class="form-control" name="phone" id="phone" [(ngModel)]="doctor.phone" required>
+      <small [style.color]="'blue'" *ngIf="phone.touched && !phone.valid">Phone is required.</small>
     </div>
     <div class="form-group" >
       <label> Select Speciality </label>
-      <select  name="speciality" id="speciality" class="form-control" [(ngModel)]="currentSpecialityId" >
+      <select  name="speciality" #speciality="ngModel"  id="speciality" class="form-control" [(ngModel)]="currentSpecialityId" required>
         <option *ngFor="let sp of specialities" [value] ="sp.id">
           {{sp.speciality}}
 
         </option>
       </select>
+      <small [style.color]="'blue'" *ngIf="speciality.touched && !speciality.valid">Speciality is required.</small>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-success">Save</button>
+      <button type="submit" class="btn btn-success" [disabled]="!updateDoctor.valid">Save</button>
     </div>
   </form>
 

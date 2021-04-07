@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from '../patient';
 
+
 @Component({
   selector: 'app-update-patient',
   templateUrl: './update-patient.component.html',
@@ -12,7 +13,7 @@ export class UpdatePatientComponent implements OnInit {
 currentPatient = new Patient();
 currentId: number=0;
 doctors?:any[];
-doctorId:number=0;
+doctorId:any;
   constructor(private  activatedRoute: ActivatedRoute, private patientService: PatientService,private router: Router) { }
 
   ngOnInit(): void {
@@ -27,8 +28,8 @@ doctorId:number=0;
      });
   }
 
-  onSave(){
-   this.patientService.updatePatient(this.currentId,this.doctorId,this.currentPatient).subscribe(data=>{
+  onSave(updatePatientForm: any){
+   this.patientService.updatePatient(this.currentId,this.doctorId,updatePatientForm.value).subscribe(data=>{
      console.log("a patient has been updated");
      this.router.navigate(['patientList']);
    });

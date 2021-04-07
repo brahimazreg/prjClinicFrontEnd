@@ -10,18 +10,18 @@ import { Speciality } from '../speciality';
 })
 export class UpdateSpecialityComponent implements OnInit {
   specialityId: number=0
-  speciality=new Speciality();
+  myspeciality=new Speciality();
   constructor(private activatedRoute: ActivatedRoute,private patientService: PatientService,private router:Router) { }
 
   ngOnInit(): void {
     this.specialityId=this.activatedRoute.snapshot.params.id;
     this.patientService.getSpecialityById(this.specialityId).subscribe(data => {
-      this.speciality=data;
+      this.myspeciality=data;
     });
   }
 
-  onSave(){
-   this.patientService.updateSpeciality(this.specialityId,this.speciality).subscribe(data =>{
+  onSave(updateSpeciality:any){
+   this.patientService.updateSpeciality(this.specialityId,updateSpeciality.value).subscribe(data =>{
      this.router.navigate(['specialityList']);
      console.log("A speciality has been updated")
    });

@@ -21,9 +21,11 @@ export class CreateDoctorComponent implements OnInit {
     });
   }
 
-  onAdd(){
+  onAdd(createDoctor:any){
     // call method with doctor and currentSpecialityId
-    this.patientService.createDoctor(this.currentSpecialityId,this.doctor).subscribe(data =>{
+         console.log(createDoctor.value);
+
+    this.patientService.createDoctor(this.currentSpecialityId,createDoctor.value).subscribe(data =>{
        this.router.navigate([('doctorsList')]);
 
     });

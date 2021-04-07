@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-speciality.component.css']
 })
 export class CreateSpecialityComponent implements OnInit {
- speciality=new Speciality();
+ myspeciality=new Speciality();
   constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  onAdd(){
-    this.patientService.createSpeciality(this.speciality).subscribe(data =>{
+  onAdd(createSpeciality: any){
+    this.patientService.createSpeciality(createSpeciality.value).subscribe(data =>{
       console.log("A speciality has been created")
       this.router.navigate(['specialityList']);
     });
