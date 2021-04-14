@@ -2,7 +2,7 @@
   <h3>Specialities List</h3>
   <div class="card">
     <div class="card-body">
-      <table class="table table-striped">
+      <table class="table table-striped" *ngIf="specialities">
         <thead>
           <th>Numero </th>
           <th>Speciality</th>
@@ -10,7 +10,8 @@
           <th>Actions</th>
         </thead>
         <tbody>
-          <tr *ngFor="let sp of specialities">
+          <tr *ngFor="let sp of specialities | paginate :{id:'foo',
+          itemsPerPage:4,currentPage:page,totalItems:totalRecords} ">
             <td>{{sp.id}}</td>
             <td>{{sp.speciality}}</td>
             <td>{{sp.description}}</td>
@@ -22,12 +23,16 @@
         </tbody>
 
       </table>
+      <div >
+        <pagination-controls id="foo" (pageChange)="page=$event"></pagination-controls>
 
+      </div>
     </div>
 
   </div>
-  <div class="speciality">
-    <button type="submit" class="btn btn-success" (click)="onAdd()">Add Speciality</button>
-  </div>
 
+
+</div>
+<div class="speciality">
+  <button type="submit" class="btn btn-success" (click)="onAdd()">Add Speciality</button>
 </div>

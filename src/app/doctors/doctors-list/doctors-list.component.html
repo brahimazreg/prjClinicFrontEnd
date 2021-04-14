@@ -2,7 +2,7 @@
   <h3>Doctors List</h3>
   <div class="card">
     <div class="card-body">
-      <table class="table table-striped">
+      <table class="table table-striped" *ngIf="doctors">
         <thead>
           <th>First Name</th>
           <th>Last Name</th>
@@ -11,7 +11,8 @@
           <th>Actions</th>
         </thead>
         <tbody>
-          <tr   *ngFor="let doctor of doctors">
+          <tr   *ngFor="let doctor of doctors | paginate :{id:'foo',
+          itemsPerPage:4,currentPage:page,totalItems:totalRecords}    " >
             <td>{{doctor.fname}}</td>
             <td>{{doctor.lname}}</td>
             <td>{{doctor.phone}}</td>
@@ -26,13 +27,18 @@
 
 
       </table>
+      <div >
+        <pagination-controls id="foo" (pageChange)="page=$event"></pagination-controls>
+
+      </div>
 
     </div>
 
 
   </div>
-  <div class="doctor">
-    <button type="submit" class="btn btn-info" (click)="onAdd()">Add Doctor</button>
-  </div>
 
+
+</div>
+<div class="doctor">
+  <button type="submit" class="btn btn-info" (click)="onAdd()">Add Doctor</button>
 </div>

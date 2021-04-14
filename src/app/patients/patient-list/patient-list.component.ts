@@ -14,13 +14,16 @@ import { Patient } from '../patient';
 export class PatientListComponent implements OnInit {
   patientsDetails?: PatientDetails[];
   deletedPatient?: Patient;
+  totalRecords?: number; // for pagination
+  page:number=1; // for pagination
+
   constructor(private patientService: PatientService,private router: Router) { }
 
   ngOnInit(): void {
     this.patientService.getAllPatients().subscribe(data =>{
       this.patientsDetails=data;
-
-      console.log(data);
+      this.totalRecords=this.patientsDetails.length // memorize the length of data
+      console.log(this.totalRecords);
     });
   }
 

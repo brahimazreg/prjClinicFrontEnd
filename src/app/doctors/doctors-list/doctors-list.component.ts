@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class DoctorsListComponent implements OnInit {
   doctors?: Doctor[];
   currentSpecialityId: any;
+  totalRecords?: number; // for pagination
+   page:number=1; // for pagination
   constructor(private patientService: PatientService,private router: Router) { }
 
   ngOnInit(): void {

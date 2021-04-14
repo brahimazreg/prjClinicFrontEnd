@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PatientsModule } from './patients/patients.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,
-    PatientsModule,
+    PatientsModule,NgxPaginationModule,
     HttpClientModule,FormsModule,DoctorsModule,SpecialitiesModule,VisitsModule
 
   ],

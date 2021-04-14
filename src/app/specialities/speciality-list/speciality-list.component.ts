@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SpecialityListComponent implements OnInit {
 specialities?: Speciality[];
+totalRecords?: number; // for pagination
+page:number=1; // for pagination
   constructor(private patientService : PatientService,private router:Router) { }
 
   ngOnInit(): void {
@@ -28,6 +30,8 @@ specialities?: Speciality[];
     this.patientService.deleteSpeciality(id).subscribe(data =>{
       this.ngOnInit();
       console.log("A speciality has been deleted")
+
+
     });
    }
 }

@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,7 @@ import { UpdateSpecialityComponent } from './update-speciality/update-speciality
 @NgModule({
   declarations: [SpecialityListComponent, CreateSpecialityComponent, UpdateSpecialityComponent],
   imports: [
-    CommonModule,FormsModule
+    CommonModule,FormsModule,NgxPaginationModule
   ],
   exports :[
     SpecialityListComponent, CreateSpecialityComponent, UpdateSpecialityComponent

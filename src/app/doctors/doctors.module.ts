@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,7 @@ import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
 @NgModule({
   declarations: [DoctorsListComponent, CreateDoctorComponent, EditDoctorComponent, UpdateDoctorComponent],
   imports: [
-    CommonModule,FormsModule
+    CommonModule,FormsModule,NgxPaginationModule
   ],
   exports: [
     DoctorsListComponent, CreateDoctorComponent, EditDoctorComponent,UpdateDoctorComponent

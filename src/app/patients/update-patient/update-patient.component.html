@@ -16,8 +16,8 @@
     </div>
     <div class="form-group">
       <label> Last Name</label>
-      <input [style.color]="'blue'" type="text" name="lastName" #lname="ngModel"  minlength="3" required id="lastName" class="form-control" [(ngModel)]="currentPatient.lastName">
-      <small *ngIf="lname.touched && !lname.valid">
+      <input  type="text" name="lastName" #lname="ngModel"  minlength="3" required id="lastName" class="form-control" [(ngModel)]="currentPatient.lastName">
+      <small [style.color]="'blue'" *ngIf="lname.touched && !lname.valid">
         <div *ngIf="lname?.errors?.required">
              First Name is required
         </div>
